@@ -15,16 +15,59 @@
 
     <!-- CDN AXIOS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"
-            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"
+            integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg=="
+            crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
 
     <link rel="stylesheet" href="css/style.css"/>
 
-    <title>Title</title>
+    <title>Dischi Collection</title>
 </head>
 <body>
 
+<div id="root" class="wrapper">
 
+    <!-- HEADER -->
+    <header>
+
+        <!-- Logo-->
+        <img class="logo" src="img/download.png" alt="Logo"></img>
+        <!-- End Logo-->
+
+        <!-- Select-->
+        <select class="select">
+            <option>
+                dsasadasdasdasdasdasd
+            </option>
+        </select>
+        <!-- End Select-->
+
+    </header>
+    <!-- END HEADER -->
+
+    <!-- MAIN -->
+    <main>
+        <!-- cds Container-->
+        <div class="cds-container">
+
+            <!-- Single CD-->
+            <div v-for="cd in cds" class="cd">
+                <img class="cursor" :src="cd.poster" alt="cd.title">
+                <div class="cd-title">{{ cd.title }}</div>
+                <div class="cd-author">{{ cd.author }}</div>
+                <div class="cd-year">{{ cd.year }}</div>
+            </div>
+            <!-- End Single CD-->
+
+        </div>
+        <!-- End cds Container-->
+
+
+    </main>
+    <!-- END MAIN -->
+
+
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
