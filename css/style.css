@@ -12,25 +12,37 @@ img {
 
 }
 
-header {
+.header{
     background-color: rgb(46, 58, 70);
-    padding: 6px;
+    padding: 9px;
     display: flex;
-    justify-content: space-between;
+   justify-content: space-between;
 }
 .logo {
     width: 45px;
     height: 45px;
+    display: block;
+
+}
+.label {
+    color: white;
+    background-color: #1e2e3c;
+    padding: 10px 10px;
+    text-align: center;
+
+}
+.label p {
+    float: right;
 }
 .select {
     background-color: #1e2e3c;
-    margin-right: 15px;
     padding: 6px;
     color: white;
     border-radius: 11px;
-    font-size: 15px;
-
+    font-size: 19px;
+    width: 156px;
 }
+
 
 main {
     background-color: #1e2e3c;

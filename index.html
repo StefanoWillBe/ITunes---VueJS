@@ -28,18 +28,24 @@
 <div id="root" class="wrapper">
 
     <!-- HEADER -->
-    <header>
+    <header class="header">
 
         <!-- Logo-->
         <img class="logo" src="img/download.png" alt="Logo"></img>
         <!-- End Logo-->
 
         <!-- Select-->
-        <select class="select">
-            <option>
-                dsasadasdasdasdasdasd
-            </option>
-        </select>
+
+        <div>
+            <span class="label"> Filtra per genere:</span>
+            <select class="select" v-model="filterGenre" @change="filterGenreDisk()">
+                <option>Tutti</option>
+                <option v-for="genere in newFilter">
+                    {{ genere }}
+                </option>
+            </select>
+        </div>
+
         <!-- End Select-->
 
     </header>
@@ -47,16 +53,22 @@
 
     <!-- MAIN -->
     <main>
+
         <!-- cds Container-->
         <div class="cds-container">
 
             <!-- Single CD-->
+
+            <!--  @todo ALTERNATIVA ALLA FUNZIONE FILTER @todo -->
+            <!-- <div v-for="cd in cds" class="cd" v-if="filterGenre.length == 0 || filterGenre == cd.genre">-->
+
             <div v-for="cd in cds" class="cd">
                 <img class="cursor" :src="cd.poster" alt="cd.title">
                 <div class="cd-title">{{ cd.title }}</div>
                 <div class="cd-author">{{ cd.author }}</div>
                 <div class="cd-year">{{ cd.year }}</div>
             </div>
+
             <!-- End Single CD-->
 
         </div>
