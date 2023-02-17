@@ -19,8 +19,8 @@ img {
    justify-content: space-between;
 }
 .logo {
-    width: 45px;
-    height: 45px;
+    width: 60px;
+    height: 60px;
     display: block;
 
 }
@@ -70,11 +70,19 @@ main {
     object-fit: cover;
 }
 .cd-title {
-    color: white;
+    color: #cdcf5d;
     margin: 2px;
+    font-size: 13px;
+    display: block;
 }
 .cd-author,
 .cd-year {
-    font-size: 10px;
-    color: #507ca2;
+    font-size: 15px;
+    color: #aed6ff;
+}
+
+
+
+.cd-artista {
+    color: white;
 }

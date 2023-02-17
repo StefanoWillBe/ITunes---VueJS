@@ -31,22 +31,8 @@
     <header class="header">
 
         <!-- Logo-->
-        <img class="logo" src="img/download.png" alt="Logo"></img>
+        <img class="logo" src="img/iTunes.png" alt="Logo"></img>
         <!-- End Logo-->
-
-        <!-- Select-->
-
-        <div>
-            <span class="label"> Filtra per genere:</span>
-            <select class="select" v-model="filterGenre" @change="filterGenreDisk()">
-                <option>Tutti</option>
-                <option v-for="genere in newFilter">
-                    {{ genere }}
-                </option>
-            </select>
-        </div>
-
-        <!-- End Select-->
 
     </header>
     <!-- END HEADER -->
@@ -63,10 +49,11 @@
             <!-- <div v-for="cd in cds" class="cd" v-if="filterGenre.length == 0 || filterGenre == cd.genre">-->
 
             <div v-for="cd in cds" class="cd">
-                <img class="cursor" :src="cd.poster" alt="cd.title">
-                <div class="cd-title">{{ cd.title }}</div>
+                <img class="cursor" :src="cd.artworkUrl100" alt="cd.artistName">
+                <div class="cd-artista">{{ cd.artistName }}</div>
+                <div class="cd-title">{{ cd.collectionName}}</div>
                 <div class="cd-author">{{ cd.author }}</div>
-                <div class="cd-year">{{ cd.year }}</div>
+                <div class="cd-year">Prezzo: € {{ cd.collectionPrice}}</div>
             </div>
 
             <!-- End Single CD-->

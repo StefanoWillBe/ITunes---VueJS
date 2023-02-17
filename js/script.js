@@ -2,51 +2,36 @@ var app = new Vue({
     el: '#root',
     data: {
         cds: [],
-        newFilter: [],
-        copyCds: [],
-        filterGenre: ""
     },
-    methods: {
-
-        filterGenreDisk() {
-            this.cds=[];
-            this.copyCds.forEach((object) => {
-
-                const nuova = object.genre;
-                const tutti = object
-
-                if (this.filterGenre == nuova) {
-                    this.cds.push(object);
-
-                }else if (this.filterGenre == "Tutti") {
-                    this.cds.push(tutti)
-                }
-                //    devo popolare la pagina in base al genere
-            })
-        },
-
-    },
+    methods: {},
 
     mounted() {
         axios
-            .get("https://flynn.boolean.careers/exercises/api/array/music")
-            .then((element)=>{
-               const objCds = element.data;
-               this.cds = objCds.response;
-               this.copyCds = this.cds;
+            .get("https://itunes.apple.com/search", {
+                params: {
+                    term: "Tiromancino",
+                    country: "it",
+                    Entity: "music",
+                    limit: 100
+                }
+            })
+            .then((response)=>{
+               
+                const objCds = response.data.results;
+            
+                
 
-               this.cds.forEach((element) => {
-                  const genreNewArray = element.genre;
+                for(let i = 0; i < objCds.length; i++) {
+                    
+                    
 
-                  // controllo che non vengano pushati duplicati
-                   if(!this.newFilter.includes( genreNewArray )){
-                       this.newFilter.push(genreNewArray);
-                   }
-               })
 
-                this.cds.sort(function(a,b){
-                    return new Date(a.year) - new Date(b.year);
-                });
+                    if (this.cds.filter(c => c.collectionName === objCds[i].collectionName).length == 0) {
+                        this.cds.push(objCds[i]);
+                    }
+                    
+                }
+
             });
 
     },
